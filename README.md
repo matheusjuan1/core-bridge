@@ -1,1 +1,1 @@
-# core-bridge-android
+# core-bridge
