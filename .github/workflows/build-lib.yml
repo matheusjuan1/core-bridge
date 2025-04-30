@@ -33,6 +33,11 @@ jobs:
           mkdir -p CoreBridgeAndroid/app/libs
           cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeAndroid/app/libs/core-bridge.aar
 
+      - name: 📦 Copiar .aar para projeto Flutter
+        run: |
+          mkdir -p CoreBridgeFlutter/libs
+          cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeFlutter/android/libs/core-bridge.aar
+
       - name: 🔄 Commit do .aar gerado
         env:
           TOKEN: ${{ secrets.GH_TOKEN }}
@@ -40,6 +45,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add CoreBridgeAndroid/app/libs/core-bridge.aar
+          git add CoreBridgeFlutter/android/libs/core-bridge.aar
           git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente" || echo "Nada para commit"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
           git push origin HEAD:main
