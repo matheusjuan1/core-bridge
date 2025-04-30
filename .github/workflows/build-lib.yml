@@ -1,0 +1,42 @@
+name: Build CoreBridgeLib and Export AAR
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'CoreBridgeLib/**'
+    branches:
+      - main
+
+jobs:
+  build-lib:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ☕️ Configurar JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 🛠️ Rodar build da lib
+        working-directory: CoreBridgeLib
+        run: ./gradlew clean assembleDebug
+
+      - name: 📦 Copiar .aar para projeto Android
+        run: |
+          mkdir -p CoreBridgeAndroid/app/libs
+          cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeAndroid/app/libs/core-bridge.aar
+
+      - name: 🔄 Commit do .aar gerado
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add CoreBridgeAndroid/app/libs/core-bridge.aar
+          git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente"
+          git push
