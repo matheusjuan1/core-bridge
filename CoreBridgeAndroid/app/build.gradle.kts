@@ -41,7 +41,7 @@ android {
 
 dependencies {
 
-    implementation(files("libs/corebridge-release.aar"))
+    implementation(files("libs/core-bridge.aar"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
