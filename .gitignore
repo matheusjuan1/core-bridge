@@ -1,0 +1,51 @@
+# === Global ===
+*.iml
+*.log
+.gradle/
+build/
+.idea/
+local.properties
+.DS_Store
+*.swp
+*.swo
+
+# === Android ===
+**/build/
+**/captures/
+**/output.json
+**/*.apk
+**/*.aar
+**/*.ap_
+
+# === Kotlin/Java ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Jetpack Compose Preview ===
+**/composePreview/
+
+# === VSCode ===
+.vscode/
+
+# === OS-specific ===
+Thumbs.db
+ehthumbs.db
+*.stackdump
+
+# === Flutter ===
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/pubspec.lock
+
+# === Node/React Native ===
+**/node_modules/
+**/dist/
+**/npm-debug.log*
+**/yarn-error.log
+
+# === Local libs moved manually ===
+CoreBridgeAndroid/app/libs/corebridge-release.aar
