@@ -42,4 +42,7 @@ jobs:
       - name: 🔄 Commit do .aar gerado
         run: |
           git config user.name "github-actions"
-          git config
+          git config user.email "actions@github.com"
+          git add CoreBridgeAndroid/app/libs/core-bridge.aar
+          git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente"
+          git push
