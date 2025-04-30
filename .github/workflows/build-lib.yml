@@ -33,10 +33,13 @@ jobs:
           mkdir -p CoreBridgeAndroid/app/libs
           cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeAndroid/app/libs/core-bridge.aar
 
+      - name: 🔄 Configurar token para commit
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+
       - name: 🔄 Commit do .aar gerado
         run: |
           git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add CoreBridgeAndroid/app/libs/core-bridge.aar
-          git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente"
-          git push
+          git config
