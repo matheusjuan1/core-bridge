@@ -6,7 +6,7 @@ public class HelloWorld {
         return "Hello World!";
     }
 
-    public String helloName(String name) {
+    public String hello(String name) {
         return "Hello " + name + "!";
     }
 }
