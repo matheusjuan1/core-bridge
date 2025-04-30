@@ -7,6 +7,6 @@ public class HelloWorld {
     }
 
     public String hello(String name) {
-        return "Hello, " + name + "!";
+        return "Hello " + name + "!";
     }
 }
