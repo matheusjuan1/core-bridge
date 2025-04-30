@@ -16,7 +16,7 @@ jobs:
       - name: 📥 Checkout do repositório
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: ☕️ Configurar JDK
         uses: actions/setup-java@v3
@@ -33,16 +33,13 @@ jobs:
           mkdir -p CoreBridgeAndroid/app/libs
           cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeAndroid/app/libs/core-bridge.aar
 
-      - name: 🔄 Configurar token para commit
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-
       - name: 🔄 Commit do .aar gerado
+        env:
+          TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add CoreBridgeAndroid/app/libs/core-bridge.aar
-          git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente"
-          git push
+          git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente" || echo "Nada para commit"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git push origin HEAD:main
