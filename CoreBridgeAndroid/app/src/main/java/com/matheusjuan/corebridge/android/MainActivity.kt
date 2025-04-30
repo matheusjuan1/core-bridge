@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.matheusjuan.corebridge.HelloWorld
+import com.matheusjuan.corebridge.android.core.CoreBridgeManager
 import com.matheusjuan.corebridge.android.ui.theme.CoreBridgeAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
             CoreBridgeAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        text = HelloWorld().hello("Matheus"),
+                        text = CoreBridgeManager.instance.hello("Matheus"),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -43,6 +44,6 @@ fun Greeting(text: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     CoreBridgeAndroidTheme {
-        Greeting(HelloWorld().hello("Android"))
+        Greeting(CoreBridgeManager.instance.hello("Android"))
     }
 }
