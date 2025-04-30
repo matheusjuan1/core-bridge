@@ -18,7 +18,3 @@ Thumbs.db
 
 # === Misc ===
 *.log
-
-# === Libs ===
-app/libs/*
-!app/libs/core-bridge.aar

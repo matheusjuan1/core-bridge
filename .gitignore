@@ -46,6 +46,3 @@ ehthumbs.db
 **/dist/
 **/npm-debug.log*
 **/yarn-error.log
-
-# === Local libs moved manually ===
-CoreBridgeAndroid/app/libs/corebridge-release.aar
