@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 
 import 'core_bridge_plugin_platform_interface.dart';
 
