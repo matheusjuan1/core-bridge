@@ -1,10 +1,12 @@
-library corebridge;
-
-{$mode objfpc}{$H+}
+library CoreBridge;
 
 uses
-  Classes
-  { you can add units after this };
+  SysUtils,
+  CoreBridgeUnit;
+
+exports
+  HelloWorld,
+  Hello;
 
 begin
 end.

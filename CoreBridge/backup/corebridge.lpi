@@ -97,6 +97,7 @@
       <Unit>
         <Filename Value="corebridge.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="CoreBridge"/>
       </Unit>
       <Unit>
         <Filename Value="corebridgeunit.pas"/>

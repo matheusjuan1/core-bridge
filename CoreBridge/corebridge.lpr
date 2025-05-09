@@ -6,7 +6,8 @@ uses
 
 exports
   HelloWorld,
-  Hello;
+  Hello,
+  HelloByteBuffer;
 
 begin
 end.

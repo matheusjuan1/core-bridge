@@ -9,6 +9,7 @@ uses
 
 function HelloWorld: PChar; cdecl;
 function Hello(Name: PChar): PChar; cdecl;
+function HelloByteBuffer(Buffer: PChar; var Size: integer): integer; cdecl;
 
 implementation
 
@@ -19,7 +20,13 @@ end;
 
 function Hello(Name: PChar): PChar; cdecl;
 begin
-  Result := 'Hello, ' + Name + '!!';
+  Result := PChar('Hello, ' + Name + '!!');
+end;
+
+function HelloByteBuffer(Buffer: PChar; var Size: integer): integer; cdecl;
+begin
+    strcopy(Buffer,'Hello');
+    Result := Length(Buffer);
 end;
 
 
