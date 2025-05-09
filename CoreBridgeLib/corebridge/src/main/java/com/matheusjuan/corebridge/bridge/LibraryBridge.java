@@ -7,7 +7,7 @@ import com.sun.jna.ptr.IntByReference;
 import java.nio.ByteBuffer;
 
 /**
- * ICoreBridge é a interface que lista os métodos do componente CoreBridge
+ * LibraryBridge é a interface que lista os métodos do componente CoreBridge
  */
 public interface LibraryBridge extends Library {
 
