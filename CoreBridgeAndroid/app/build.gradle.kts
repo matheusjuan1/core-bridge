@@ -42,6 +42,7 @@ android {
 dependencies {
 
     implementation(files("libs/core-bridge.aar"))
+    implementation("net.java.dev.jna:jna:5.14.0@aar")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
