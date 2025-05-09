@@ -39,6 +39,52 @@
           </Linking>
         </CompilerOptions>
       </Item>
+      <Item Name="android-x86">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="jniLibs\x86\corebridge"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="android"/>
+          </CodeGeneration>
+          <Linking>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
+      <Item Name="android-x86_64">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="jniLibs\x86_64\corebridge"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="android"/>
+          </CodeGeneration>
+          <Linking>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
