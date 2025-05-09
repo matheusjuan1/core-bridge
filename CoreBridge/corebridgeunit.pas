@@ -7,20 +7,21 @@ interface
 uses
   Classes, SysUtils;
 
-function HelloWorld: PChar; stdcall;
-function Hello(Name: PChar): PChar; stdcall;
+function HelloWorld: PChar; cdecl;
+function Hello(Name: PChar): PChar; cdecl;
 
 implementation
 
-function HelloWorld: PChar; stdcall;
+function HelloWorld: PChar; cdecl;
 begin
-  Result := PChar('Hello World!');
+  Result := 'Hello World!';
 end;
 
-function Hello(Name: PChar): PChar; stdcall;
+function Hello(Name: PChar): PChar; cdecl;
 begin
-  Result := PChar('Hello, ' + String(Name) + '!!');
+  Result := PChar('Hello, ' + Name + '!!');
 end;
+
 
 end.
 

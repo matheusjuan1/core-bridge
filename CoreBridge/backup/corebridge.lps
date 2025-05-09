@@ -3,12 +3,13 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <ManyBuildModesSelection Value="android-arm64-v8a,android-armeabi-v7a"/>
+    <BuildModes Active="android-arm64-v8a"/>
     <Units>
       <Unit>
         <Filename Value="corebridge.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="24" Y="13"/>
+        <CursorPos Y="13"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
@@ -18,12 +19,12 @@
         <UnitName Value="CoreBridgeUnit"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="94" Y="21"/>
+        <CursorPos X="28" Y="17"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="2">
+    <JumpHistory HistoryIndex="4">
       <Position>
         <Filename Value="corebridge.lpr"/>
         <Caret Line="8" Column="18"/>
@@ -35,6 +36,14 @@
       <Position>
         <Filename Value="corebridge.lpr"/>
         <Caret Line="19" Column="11"/>
+      </Position>
+      <Position>
+        <Filename Value="corebridgeunit.pas"/>
+        <Caret Line="11" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="corebridgeunit.pas"/>
+        <Caret Line="23" Column="122"/>
       </Position>
     </JumpHistory>
     <RunParams>

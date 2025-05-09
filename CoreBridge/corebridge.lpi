@@ -15,7 +15,30 @@
       <ResourceType Value="res"/>
     </General>
     <BuildModes>
-      <Item Name="Default" Default="True"/>
+      <Item Name="android-arm64-v8a" Default="True"/>
+      <Item Name="android-armeabi-v7a">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="jniLibs\armeabi-v7a\corebridge"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="arm"/>
+            <TargetOS Value="android"/>
+          </CodeGeneration>
+          <Linking>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -40,7 +63,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="corebridge"/>
+      <Filename Value="jniLibs\arm64-v8a\corebridge"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
@@ -48,6 +71,8 @@
     </SearchPaths>
     <CodeGeneration>
       <RelocatableUnit Value="True"/>
+      <TargetCPU Value="aarch64"/>
+      <TargetOS Value="android"/>
     </CodeGeneration>
     <Linking>
       <Options>

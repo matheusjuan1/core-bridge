@@ -29,6 +29,11 @@
         <Filename Value="corebridge.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="corebridgeunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="CoreBridgeUnit"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -43,6 +48,8 @@
     </SearchPaths>
     <CodeGeneration>
       <RelocatableUnit Value="True"/>
+      <TargetCPU Value="aarch64"/>
+      <TargetOS Value="android"/>
     </CodeGeneration>
     <Linking>
       <Options>
