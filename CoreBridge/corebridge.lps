@@ -8,8 +8,7 @@
       <Unit>
         <Filename Value="corebridge.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="66" Y="13"/>
+        <CursorPos Y="13"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
@@ -17,8 +16,9 @@
         <Filename Value="corebridgeunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoreBridgeUnit"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="26" Y="22"/>
+        <CursorPos X="73" Y="23"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>

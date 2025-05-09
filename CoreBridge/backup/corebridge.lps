@@ -8,13 +8,35 @@
       <Unit>
         <Filename Value="corebridge.lpr"/>
         <IsPartOfProject Value="True"/>
+        <CursorPos X="24" Y="13"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="corebridgeunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="CoreBridgeUnit"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="19"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="94" Y="21"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="corebridge.lpr"/>
+        <Caret Line="8" Column="18"/>
+      </Position>
+      <Position>
+        <Filename Value="corebridgeunit.pas"/>
+        <Caret Line="4" Column="25"/>
+      </Position>
+      <Position>
+        <Filename Value="corebridge.lpr"/>
+        <Caret Line="19" Column="11"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
