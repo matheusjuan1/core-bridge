@@ -46,3 +46,13 @@ ehthumbs.db
 **/dist/
 **/npm-debug.log*
 **/yarn-error.log
+
+# === Pascal Project ===
+!CoreBridge/**/*.pas
+!CoreBridge/**/*.lpr
+!CoreBridge/**/*.lfm
+
+# Pascal build artifacts (Lazarus/FPC)
+CoreBridge/**/*.o
+CoreBridge/**/*.ppu
+CoreBridge/**/*.compiled
