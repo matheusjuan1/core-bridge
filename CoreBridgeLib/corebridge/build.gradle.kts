@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation(libs.jna)
+
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
