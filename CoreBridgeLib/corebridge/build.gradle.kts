@@ -30,7 +30,7 @@ android {
 
 dependencies {
 
-    implementation(libs.jna)
+    implementation("net.java.dev.jna:jna:5.14.0@aar")
 
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
