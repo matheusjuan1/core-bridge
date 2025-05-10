@@ -1,74 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:core_bridge_plugin/core_bridge_plugin.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const CoreBridgeApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CoreBridgeApp extends StatefulWidget {
+  const CoreBridgeApp({super.key});
+
+  @override
+  State<CoreBridgeApp> createState() => _CoreBridgeAppState();
+}
+
+class _CoreBridgeAppState extends State<CoreBridgeApp> {
+  static const platform = MethodChannel('com.matheusjuan.corebridge/bridge');
+
+  String _message = 'Carregando...';
+
+  @override
+  void initState() {
+    super.initState();
+    _getHelloMessage();
+  }
+
+  Future<void> _getHelloMessage() async {
+    try {
+      final String result = await platform.invokeMethod('hello', {
+        'name': 'Flutter',
+      });
+      setState(() {
+        _message = result;
+      });
+    } on PlatformException catch (e) {
+      setState(() {
+        _message = 'Erro: ${e.message}';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  Future<String?> _loadHelloWorld() async {
-    return await CoreBridgePlugin.helloWorld();
-  }
-
-  Future<String?> _loadHelloName() async {
-    return await CoreBridgePlugin.hello("Matheus");
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FutureBuilder<String?>(
-            future: _loadHelloWorld(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text("Erro: ${snapshot.error}");
-              } else {
-                return Text(snapshot.data ?? '');
-              }
-            },
+      title: 'CoreBridgeLib',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('CoreBridgeLib')),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Mensagem da ponte nativa:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 12),
+                Text(_message, style: const TextStyle(fontSize: 16)),
+              ],
+            ),
           ),
-          FutureBuilder<String?>(
-            future: _loadHelloName(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text("Erro: ${snapshot.error}");
-              } else {
-                return Text(snapshot.data ?? '');
-              }
-            },
-          ),
-        ],
+        ),
       ),
     );
   }

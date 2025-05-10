@@ -1,55 +1,48 @@
 package com.matheusjuan.core_bridge_plugin
 
+import com.matheusjuan.corebridge.CoreBridgeLib
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-/** CoreBridgePlugin */
-class CoreBridgePlugin: FlutterPlugin, MethodCallHandler {
-  private lateinit var channel : MethodChannel
+class CoreBridgePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
+  private lateinit var channel: MethodChannel
+  private lateinit var coreBridgeLib: CoreBridgeLib
 
-  private lateinit var helloWorld: HelloWorld
-
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "core_bridge_plugin")
     channel.setMethodCallHandler(this)
-    helloWorld = HelloWorld()
+    coreBridgeLib = CoreBridgeLib()
   }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: MethodChannel.Result) {
-    switch (call.method) {
-      case "helloWorld":
-        handleHelloWorld(result)
-        break
-      case "hello":
-        handleHello(call, result)
-        break
+  override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
+    when (call.method) {
+      "helloWorld" -> handleHelloWorld(result)
+      "hello" -> handleHello(call, result)
       else -> result.notImplemented()
     }
   }
 
-  private fun handleHelloWorld(@NonNull result: MethodChannel.Result) {
+  private fun handleHelloWorld(result: MethodChannel.Result) {
     try {
-     val response = helloWorld.helloWorld()
-     result.success(response)
+      val response = coreBridgeLib.helloWorld()
+      result.success(response)
     } catch (e: Exception) {
-      result.error("Erro ao executar .helloWorld", e.getMessage(), e)
+      result.error("HELLO_WORLD_ERROR", e.message, null)
     }
   }
 
-  private fun handleHello(@NonNull call: MethodCall, @NonNull result: MethodChannel.Result) {
+  private fun handleHello(call: MethodCall, result: MethodChannel.Result) {
     try {
       val name = call.argument<String>("name") ?: "World"
-      val response = helloWorld.hello(name)
+      val response = coreBridgeLib.hello(name)
       result.success(response)
     } catch (e: Exception) {
-      result.error("Erro ao executar .hello", e.getMessage(), e)
+      result.error("HELLO_ERROR", e.message, null)
     }
   }
 }
