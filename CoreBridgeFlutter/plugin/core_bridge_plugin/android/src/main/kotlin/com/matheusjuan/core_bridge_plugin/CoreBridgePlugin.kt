@@ -7,12 +7,10 @@ import io.flutter.plugin.common.MethodChannel
 
 class CoreBridgePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
   private lateinit var channel: MethodChannel
-  private lateinit var coreBridgeLib: CoreBridgeLib
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "core_bridge_plugin")
     channel.setMethodCallHandler(this)
-    coreBridgeLib = CoreBridgeLib()
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -29,7 +27,7 @@ class CoreBridgePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
 
   private fun handleHelloWorld(result: MethodChannel.Result) {
     try {
-      val response = coreBridgeLib.helloWorld()
+      val response = CoreBridgeLib.helloWorld()
       result.success(response)
     } catch (e: Exception) {
       result.error("HELLO_WORLD_ERROR", e.message, null)
@@ -39,7 +37,7 @@ class CoreBridgePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
   private fun handleHello(call: MethodCall, result: MethodChannel.Result) {
     try {
       val name = call.argument<String>("name") ?: "World"
-      val response = coreBridgeLib.hello(name)
+      val response = CoreBridgeLib.hello(name)
       result.success(response)
     } catch (e: Exception) {
       result.error("HELLO_ERROR", e.message, null)

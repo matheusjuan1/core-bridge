@@ -13,7 +13,7 @@ class CoreBridgeApp extends StatefulWidget {
 }
 
 class _CoreBridgeAppState extends State<CoreBridgeApp> {
-  static const platform = MethodChannel('com.matheusjuan.corebridge/bridge');
+  static const platform = MethodChannel('core_bridge_plugin');
 
   String _message = 'Carregando...';
 

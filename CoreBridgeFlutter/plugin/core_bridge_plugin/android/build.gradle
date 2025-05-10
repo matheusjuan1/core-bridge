@@ -1,12 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 group = "com.matheusjuan.core_bridge_plugin"
 version = "1.0-SNAPSHOT"
 
@@ -20,6 +14,17 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.1.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+            dirs project(':core_bridge_plugin').file('libs')
+        }
     }
 }
 
@@ -60,7 +65,7 @@ android {
 
 dependencies {
     implementation(name: 'core-bridge', ext: 'aar')
-    implementation("net.java.dev.jna:jna:5.14.0")
+    implementation("net.java.dev.jna:jna:5.14.0@aar")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.mockito:mockito-core:5.0.0")
 }
