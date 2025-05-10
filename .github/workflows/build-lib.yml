@@ -35,8 +35,13 @@ jobs:
 
       - name: 📦 Copiar .aar para projeto Flutter
         run: |
-          mkdir -p CoreBridgeFlutter/libs
-          cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeFlutter/android/libs/core-bridge.aar
+          mkdir -p CoreBridgeFlutter/plugin/core_bridge_plugin/android/libs
+          cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeFlutter/plugin/core_bridge_plugin/android/libs/core-bridge.aar
+
+      - name: 📦 Copiar .aar para projeto React Native
+        run: |
+          mkdir -p CoreBridgeReact/android/libs
+          cp CoreBridgeLib/corebridge/build/outputs/aar/corebridge-debug.aar CoreBridgeReact/android/libs/core-bridge.aar
 
       - name: 🔄 Commit do .aar gerado
         env:
@@ -45,7 +50,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add -f CoreBridgeAndroid/app/libs/core-bridge.aar
-          git add -f CoreBridgeFlutter/android/libs/core-bridge.aar
+          git add -f CoreBridgeFlutter/plugin/core_bridge_plugin/android/libs/core-bridge.aar
+          git add -f CoreBridgeReact/android/libs/core-bridge.aar
           git commit -m "🤖 Atualiza core-bridge.aar gerado automaticamente" || echo "Nada para commit"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
           git push origin HEAD:main
