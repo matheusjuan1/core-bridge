@@ -20,7 +20,7 @@ public class CoreBridgeLib {
     public static String helloByteBuffer() {
         IntByReference size = new IntByReference(1024);
         ByteBuffer buffer = ByteBuffer.allocate(1024);
-        Log.i("CoreBridgeLib",  ":" + LibraryBridge.INSTANCE.HelloByteBuffer(buffer,size));
+        Log.i("CoreBridgeLib",  "" + LibraryBridge.INSTANCE.HelloByteBuffer(buffer,size));
         return buffer.toString();
     }
 }
