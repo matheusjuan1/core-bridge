@@ -8,8 +8,6 @@
 
 Este repositório demonstra uma **ponte de integração entre código nativo (Pascal)** e aplicações modernas em **Android, Flutter e React Native**.
 
----
-
 ## 🧭 Visão Geral do Projeto
 
 O projeto é dividido em múltiplos módulos com responsabilidades bem definidas:
@@ -34,8 +32,6 @@ O projeto é dividido em múltiplos módulos com responsabilidades bem definidas
 ```
 
 
----
-
 ## 📚 Como estudar ou reutilizar
 
 Este repositório é ideal para quem deseja:
@@ -43,8 +39,6 @@ Este repositório é ideal para quem deseja:
 - Criar **plugins multiplataforma** a partir de uma biblioteca em Pascal ou C/C++
 - Entender o processo de **empacotar uma `.so` dentro de um `.aar`**
 - Reaproveitar lógicas legadas Delphi/Pascal em **apps mobile modernos**
-
----
 
 ## ⚙️ Scripts de Build
 
@@ -54,7 +48,6 @@ Automatize a distribuição do .aar para os projetos de exemplo 🟢 Android, �
 - `build-core-bridge.bat` (Windows)
 - `GitHub Actions`
 
----
 
 ## 📝 Licença
 
